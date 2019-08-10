@@ -1,0 +1,309 @@
+package demo;
+
+import java.util.Date;
+
+public class Dvd {
+     String dvdName;
+     String lendTime;
+     int lendNumber;
+     int lendState;
+
+    public Dvd() {
+    }
+    public Dvd(String dvdName, String lendTime, int lendNumber, int lendState) {
+        this.dvdName = dvdName;
+        this.lendTime = lendTime;
+        this.lendNumber = lendNumber;
+        this.lendState = lendState;
+    }
+
+    public String getDvdName() {
+        return dvdName;
+    }
+    public void setDvdName(String dvdName) {
+        this.dvdName = dvdName;
+    }
+
+    public String getLendTime() {
+        return lendTime;
+    }
+    public void setLendTime(String lendTime) {
+        this.lendTime = lendTime;
+    }
+
+    public int getLendNumber() {
+        return lendNumber;
+    }
+    public void setLendNumber(int lendNumber) {
+        this.lendNumber = lendNumber;
+    }
+
+    public int getLendState() {
+        return lendState;
+    }
+    public void setLendState(int lendState) {
+        this.lendState = lendState;
+    }
+
+    @Override
+    public String toString() {
+    	if(lendState==0) {
+    		return "名称：" + dvdName  + ", 借出时间：" + lendTime + ", 借出次数：" + lendNumber + ", 状态：可借";
+    	}else {
+    		return "名称：" + dvdName  + ", 借出时间：" + lendTime + ", 借出次数：" + lendNumber + ", 状态：不可借";
+    	}
+        
+    }
+}
+
+------------------------------------------------
+
+package demo;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+
+public class dvdAdimin {
+    ArrayList list = new ArrayList();
+    Scanner sc = new Scanner(System.in);
+    
+    //用于添加借出时间
+    Date date=new Date();
+    SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    
+    public void addDvd(){
+        System.out.print("请输入DVD名称：");
+        String name = sc.next();
+        System.out.println();
+        //如果list中没有元素(lise.size()==0)，直接添加
+        if(list.size()>0){
+        	//遍历list，判断是否有同名DVD存在
+            for (int j=0;j<list.size();j++){
+                Dvd d = (Dvd)list.get(j);
+                //equals()方法比较两个字符串值是否相等
+                if(d.getDvdName().equals(name)){
+                    System.out.println("该DVD已存在");
+                    break;
+                }else{
+                    Dvd dvd = new Dvd(name,null,0,0);
+                    list.add(dvd);
+                    System.out.println("添加成功");
+                    break;
+                }
+            }
+        }else{
+            Dvd dvd = new Dvd(name,null,0,0);
+            list.add(dvd);
+            System.out.println("添加成功");
+        }
+    }
+
+    public void seeDvd(){
+        System.out.println("请输入DVD名称:");
+        String name = sc.next();
+        System.out.println();
+        //如果集合中没有元素，说明没有DVD
+        if(list.size()>0){
+            for(int j=0;j<list.size();j++){
+                Dvd d = (Dvd)list.get(j);       
+                if(d.getDvdName().equals(name)){
+                    System.out.println(list.get(j));
+                    break;
+                }else{
+                	//因为每一次遍历都是从头开始，所以判断是否比较到最后一个元素，如果没有，continue
+                	if(j==list.size()-1) {
+                        System.out.println("该DVD不存在");
+                        break;
+                	}else {
+                    	continue;
+                	}
+                }
+            }
+        }else{
+            System.out.println("没有DVD");
+        }
+    }
+
+    public void deleteDvd(){
+        System.out.println("请输入DVD名称:");
+        String name = sc.next();
+        System.out.println();
+        if(list.size()>0){
+            for(int j=0;j<list.size();j++){
+                Dvd d = (Dvd)list.get(j);
+                if(d.getDvdName().equals(name)){
+                    list.remove(j);
+                    System.out.println("删除成功");
+                    break;
+                }else{
+                	if(j==list.size()-1) {
+                        System.out.println("没有该DVD");
+                        break;
+                	}else {
+                		continue;
+                	}
+                }
+            }
+        }else{
+            System.out.println("该DVD不存在，无法删除");
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+	public void lendDvd(){
+        System.out.println("请输入DVD名称:");
+        String name = sc.next();
+        System.out.println();
+        if(list.size()>0){
+            for(int j=0;j<list.size();j++){
+                Dvd d = (Dvd)list.get(j);
+                if(d.getDvdName().equals(name)){
+                	//如果没被借出
+                    if(d.getLendState()==0){
+                    	//借出次数加1，状态改为1，时间改为系统时间
+                        d.setLendNumber(d.getLendNumber()+1);
+                        d.setLendState(1);
+                        d.setLendTime(dateFormat.format(date));
+                        System.out.println("借出成功");
+                        break;
+                    }else{
+                        System.out.println("借出失败,该DVD已被借出");
+                        break;
+                    }
+                }else{
+                	if(j==list.size()-1) {
+                        System.out.println("没有该DVD");
+                        break;
+                	}else {
+                		continue;
+                	}
+
+                }
+            }
+        }else{
+            System.out.println("没有DVD,无法借出");
+        }
+    }
+
+    public void returnDvd(){
+        System.out.println("请输入DVD名称:");
+        String name = sc.next();
+        System.out.println();
+        if(list.size()>0){
+            for(int j=0;j<list.size();j++){
+                Dvd d = (Dvd)list.get(j);
+                if(d.getDvdName().equals(name)){
+                    if(d.getLendState()==1){
+                        d.setLendState(0);
+                        System.out.println("归还成功");
+                        break;
+                    }else{
+                        System.out.println("归还失败");
+                        break;
+                    }
+                }else{
+                	if(j==list.size()-1) {
+                        System.out.println("不是我们的DVD");
+                        break;
+                	}else {
+                		continue;
+                	}
+
+                }
+            }
+        }else{
+            System.out.println("没有DVD,归还失败");
+        }
+    }
+}
+
+------------------------------------------------
+
+package demo;
+
+import java.util.Scanner;
+
+public class dvdMain {
+    static String in_1;
+    static String in_2="a";
+    public static void main(String[] args) {
+        dvdAdimin dv = new dvdAdimin();
+
+        while(!in_2.equals("q")) {
+            System.out.println("请选择序号：");
+            System.out.print("1.新增DVD    ");
+            System.out.println("2.查看DVD    ");
+            System.out.print("3.删除DVD    ");
+            System.out.println("4.借出DVD    ");
+            System.out.println("5.归还DVD");
+            
+            Scanner sc = new Scanner(System.in);
+            int in = sc.nextInt();
+            
+            switch(in) {
+            case 1:
+                dv.addDvd();
+                System.out.print("按任意键字母继续输入(按q退出：)");
+                in_1 = sc.next();
+                while(! in_1.equals("q")) {
+                	dv.addDvd();
+                    System.out.print("按任意键字母继续输入(按q退出：)");
+                    in_1 = sc.next();
+                }
+
+                break;
+            case 2:
+                dv.seeDvd();
+                System.out.print("按任意键字母继续输入(按q退出：)");
+                in_1 = sc.next();
+                while(! in_1.equals("q")) {
+                	dv.seeDvd();
+                    System.out.print("按任意键字母继续输入(按q退出：)");
+                    in_1 = sc.next();
+                }
+                break;
+            case 3:
+                dv.deleteDvd();
+                System.out.print("按任意键字母继续输入(按q退出：)");
+                in_1 = sc.next();
+                while(! in_1.equals("q")) {
+                	dv.deleteDvd();
+                    System.out.print("按任意键字母继续输入(按q退出：)");
+                    in_1 = sc.next();
+                }
+                break;
+            case 4:
+               dv.lendDvd();
+               System.out.print("按任意键字母继续输入(按q退出：)");
+               in_1 = sc.next();
+               while(! in_1.equals("q")) {
+               	dv.lendDvd();
+                   System.out.print("按任意键字母继续输入(按q退出：)");
+                   in_1 = sc.next();
+               }
+               break;
+            case 5:
+                dv.returnDvd();
+                System.out.print("按任意键字母继续输入(按q退出：)");
+                in_1 = sc.next();
+                while(! in_1.equals("q")) {
+                	dv.returnDvd();
+                    System.out.print("按任意键字母继续输入(按q退出：)");
+                    in_1 = sc.next();
+                }
+                break;
+            }
+            System.out.print("按任意键字母继续(按q退出程序)：");
+            in_2 = sc.next();
+            if(in_2.equals("q")) {
+            	in_2="q";
+            	System.out.println("再见");
+            }
+        }
+
+    }
+}
+
+
