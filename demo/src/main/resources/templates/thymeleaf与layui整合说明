@@ -1,0 +1,8 @@
+在html标签中添加  xmlns:th="http://www.thymeleaf.org 导入thymeleaf命名空间 ，会有语法提示，然后在eclipse中下载thymeleaf插件，最后右击项目名--thymeleaf--add thymeleaf nature
+
+thymeleaf与Layui整合，需要在pom文件中添加依赖
+	<dependency>
+		<groupId>net.sourceforge.nekohtml</groupId>
+		<artifactId>nekohtml</artifactId>
+	</dependency>
+	同时修改aplication文件，将 thymeleaf.mode=LEGACYHTML5
