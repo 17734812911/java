@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf151e5c-7f0e-4d33-9c93-c4e635b58988" name="Default Changelist" comment="" />
+    <list default="true" id="cf151e5c-7f0e-4d33-9c93-c4e635b58988" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/DruidConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +20,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -32,6 +40,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1mQEbbVcuf55XV51k2dLz75wYGU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -226,11 +235,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TestF.BCryptPassword" />
       <item itemvalue="Spring Boot.SpringsecurityApplication" />
       <item itemvalue="Spring Boot.ApplicationMethod" />
       <item itemvalue="Spring Boot.ApplicationClass" />
       <item itemvalue="Tomcat Server.Unnamed" />
-      <item itemvalue="JUnit.TestF.BCryptPassword" />
     </list>
     <recent_temporary>
       <list>
@@ -273,6 +282,7 @@
       <workItem from="1621127106111" duration="14823000" />
       <workItem from="1621254376705" duration="10319000" />
       <workItem from="1621347409502" duration="4104000" />
+      <workItem from="1621392151435" duration="2699000" />
     </task>
     <servers />
   </component>
@@ -292,38 +302,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1621047674334" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1621351530113">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1621394863371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621351530113" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1621351530112">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621394863371" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1621394863371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621351530112" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1621351530112">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621394863371" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1621394863371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621351530112" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1621351530112">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621394863371" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1621394863371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621351530112" />
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1621351530080">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621394863371" />
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1621394863372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621351530080" />
-    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1621351530080">
+    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621394863372" />
+    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1621394863372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1621351530080" />
-    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1621351530079">
+    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1621394863372" />
+    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1621394863371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1621351530079" />
-    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1621351530080">
+    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1621394863371" />
+    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1621394863372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1621351530080" />
+    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1621394863372" />
     <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1621174054450">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -40,9 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             // 登录成功和失败的处理类
             .successHandler(myAuthenticationSuccessHandler)
             .failureHandler(myAuthenticationFailureHandler)
+        .and()      // 下面两个and()是为druid配置的
+            .csrf()
+            .ignoringAntMatchers("/druid/**")           // /druid的请求不做CSRF控制
+        .and()
+            .headers()
+            .contentTypeOptions().disable()             // 关闭X-Content-Type-Options:nosniff,使Druid页面可以正常显示
         .and()
             .authorizeRequests()
-            .antMatchers("/login.html","/login").permitAll()    //表示访问这里的资源不用经过认证
+            .antMatchers("/login.html","/login","/druid/**").permitAll()    //表示访问这里的资源不用经过认证
 
             .antMatchers("/","/biz1","/biz2")                   // 资源路径匹配
             .hasAnyAuthority("ROLE_user","ROLE_admin")          // 拥有user和admin权限的用户可以访问上一行的资源
