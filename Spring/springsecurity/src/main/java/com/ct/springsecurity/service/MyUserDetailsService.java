@@ -6,7 +6,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -22,7 +21,6 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {    // 参数不一定要是用户名，只要能唯一代表这个用户的标识就行
 
-        // myUserDetailsServiceMapper.insertUser("admin",new BCryptPasswordEncoder().encode("123456"));
 
         // 加载用户基础数据(账号密码等)
         MyUserDetails myUserDetails = myUserDetailsServiceMapper.findByUserName(username);
@@ -45,6 +43,7 @@ public class MyUserDetailsService implements UserDetailsService {
         // 将authorities放到用户详情中。用SpringSecurity提供的AuthorityUtils工具类将List类型的authorities转换为需要的GrantedAuthority类型
         myUserDetails.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(String.join(",",authorities)));
 
+        System.out.println(myUserDetails.toString());
         return myUserDetails;
     }
 }

@@ -40,10 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             // 登录成功和失败的处理类
             .successHandler(myAuthenticationSuccessHandler)
             .failureHandler(myAuthenticationFailureHandler)
-        .and()      // 下面两个and()是为druid配置的
-            .csrf()
-            .ignoringAntMatchers("/druid/**")           // /druid的请求不做CSRF控制
-        .and()
+        .and()      // 下面两行是为druid配置的
             .headers()
             .contentTypeOptions().disable()             // 关闭X-Content-Type-Options:nosniff,使Druid页面可以正常显示
         .and()
@@ -60,8 +57,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              * 访问 /syslog 资源时，看有没有 sys:log 的权限。
              * 这样写的话，在下面给用户赋予角色时，要将 .roles("admin")改成.authorities("sys:log","sys:user")
              */
-            .antMatchers("/syslog").hasAuthority("syslog")
-            .antMatchers("/sysuser").hasAuthority("sysuser")
+            .antMatchers("/syslog").hasAuthority("/syslog")
+            .antMatchers("/sysuser").hasAuthority("/sysuser")
             .anyRequest()
             .authenticated()   // 所有请求都需要登录认证才能访问
         .and().sessionManagement()
@@ -80,23 +77,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService)       // 动态加载用户权限信息
         .passwordEncoder(passwordEncoder());                // 配置BCrypt加密
-
-
-    //     .inMemoryAuthentication()   // inMemoryAuthentication()表示使用的是内存方式的登录认证方式(还可以是数据库方式)
-    //     .withUser("user")
-    //     .password(passwordEncoder().encode("123456"))    // PasswordEncoder类中的encode()方法用于加密
-    //     .roles("user")
-    // .and()
-    //     .withUser("admin")
-    //     .password(passwordEncoder().encode("123456"))    // PasswordEncoder类中的encode()方法用于加密
-    //     // .roles("admin")
-    //     .authorities("sys:log","sys:user")      // 赋予admin用户这两种权限
-
     }
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        // System.out.println(new BCryptPasswordEncoder().encode("123456"));
         return new BCryptPasswordEncoder();
     }
 

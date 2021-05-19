@@ -8,9 +8,6 @@ import java.util.List;
 
 public interface MyUserDetailsServiceMapper {
 
-    // @Insert("insert into sys_user(username,password,enabled) values(#{username},#{encoder},0)")
-    // int insertUser(@Param("username") String username , @Param("encoder") String encoder);
-
     // 根据用户名查询用户
     @Select("SELECT username,password,enabled FROM sys_user WHERE username = #{username}")
     MyUserDetails findByUserName(@Param("username") String username);
@@ -34,7 +31,7 @@ public interface MyUserDetailsServiceMapper {
             "LEFT JOIN sys_role r ON r.id = rm.role_id ",
             "WHERE r.role_code IN ",
             "<foreach collection='roleCodes' item='roleCode' open='(' separator=',' close=')'>",
-                "#{roleCodes}",
+                "#{roleCode}",
             "</foreach>",
         "</script>"
     })

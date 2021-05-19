@@ -32,17 +32,17 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return accountNonExpired;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return accountNonLocked;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
+        return true;
     }
 
     @Override
@@ -59,15 +59,15 @@ public class MyUserDetails implements UserDetails {
     }
 
     public void setAccountNonExpired(boolean accountNonExpired) {   // 数据库中没有定义该字段，所以直接返回true.有的话再改回来
-        this.accountNonExpired = true;
+        this.accountNonExpired = accountNonExpired;
     }
 
     public void setAccountNonLocked(boolean accountNonLocked) {   // 数据库中没有定义该字段，所以直接返回true.有的话再改回来
-        this.accountNonLocked = true;
+        this.accountNonLocked = accountNonLocked;
     }
 
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {   // 数据库中没有定义该字段，所以直接返回true.有的话再改回来
-        this.credentialsNonExpired = true;
+        this.credentialsNonExpired = credentialsNonExpired;
     }
 
     public void setEnabled(boolean enabled) {
@@ -78,4 +78,16 @@ public class MyUserDetails implements UserDetails {
         this.authorities = authorities;
     }
 
+    @Override
+    public String toString() {
+        return "MyUserDetails{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                ", authorities=" + authorities +
+                '}';
+    }
 }
