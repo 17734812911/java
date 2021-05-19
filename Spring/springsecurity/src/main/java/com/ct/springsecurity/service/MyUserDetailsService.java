@@ -42,7 +42,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
         // 将authorities放到用户详情中。用SpringSecurity提供的AuthorityUtils工具类将List类型的authorities转换为需要的GrantedAuthority类型
         myUserDetails.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(String.join(",",authorities)));
-
+        System.out.println("在线更新");
         return myUserDetails;
     }
 }
