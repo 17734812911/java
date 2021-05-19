@@ -1,4 +1,4 @@
-package com.ct.springsecurity.pojo;
+﻿package com.ct.springsecurity.pojo;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

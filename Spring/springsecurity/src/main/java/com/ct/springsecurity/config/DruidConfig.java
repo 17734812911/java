@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-package com.ct.springsecurity.config;
-=======
-package com.ct.config;
->>>>>>> cafa1c3d396dec85d499e6362033306f869edca8
-
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -19,6 +13,12 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+<<<<<<<HEAD
+package com.ct.springsecurity.config;
+        =======
+        package com.ct.config;
+        >>>>>>>cafa1c3d396dec85d499e6362033306f869edca8
 
 @Configuration
 public class DruidConfig {

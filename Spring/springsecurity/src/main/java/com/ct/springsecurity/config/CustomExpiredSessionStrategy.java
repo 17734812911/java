@@ -1,8 +1,6 @@
 package com.ct.springsecurity.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredEvent;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 import org.springframework.stereotype.Component;
