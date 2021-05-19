@@ -47,20 +47,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .antMatchers("/login.html","/login","/druid/**").permitAll()    //表示访问这里的资源不用经过认证
 
-            .antMatchers("/","/biz1","/biz2")                   // 资源路径匹配
-            .hasAnyAuthority("ROLE_user","ROLE_admin")          // 拥有user和admin权限的用户可以访问上一行的资源
+            // .antMatchers("/","/biz1","/biz2")                   // 资源路径匹配
+            // .hasAnyAuthority("ROLE_user","ROLE_admin")          // 拥有user和admin权限的用户可以访问上一行的资源
+            //
+            // // .antMatchers("/syslog","/sysuser")                 // 资源路径匹配
+            // // .hasAnyRole("admin")                                    // 拥有admin角色的用户可以访问上一行的资源
+            // /**
+            //  * 上面两行还可以这样写
+            //  * 访问 /syslog 资源时，看有没有 sys:log 的权限。
+            //  * 这样写的话，在下面给用户赋予角色时，要将 .roles("admin")改成.authorities("sys:log","sys:user")
+            //  */
+            // .antMatchers("/syslog").hasAuthority("/syslog")
+            // .antMatchers("/sysuser").hasAuthority("/sysuser")
+            // .anyRequest()
+            // .authenticated()   // 所有请求都需要登录认证才能访问
 
-            // .antMatchers("/syslog","/sysuser")                 // 资源路径匹配
-            // .hasAnyRole("admin")                                    // 拥有admin角色的用户可以访问上一行的资源
-            /**
-             * 上面两行还可以这样写
-             * 访问 /syslog 资源时，看有没有 sys:log 的权限。
-             * 这样写的话，在下面给用户赋予角色时，要将 .roles("admin")改成.authorities("sys:log","sys:user")
-             */
-            .antMatchers("/syslog").hasAuthority("/syslog")
-            .antMatchers("/sysuser").hasAuthority("/sysuser")
-            .anyRequest()
-            .authenticated()   // 所有请求都需要登录认证才能访问
+            // 所有请求都要通过使用这个access方法里面传递的表达式的规则进行校验，如果返回true允许访问
+            .anyRequest().access("@rbacService.hasPermission(request,authentication)")
         .and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)   // Session创建策略，默认是需要时没有才创建
             .invalidSessionUrl("/login.html")                           // Session超时或不合法时默认跳转的页面
