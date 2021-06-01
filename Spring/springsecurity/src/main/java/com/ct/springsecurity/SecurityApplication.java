@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(basePackages={"com.ct"})
-public class SpringsecurityApplication {
+public class SecurityApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringsecurityApplication.class, args);
+        SpringApplication.run(SecurityApplication.class, args);
     }
 }

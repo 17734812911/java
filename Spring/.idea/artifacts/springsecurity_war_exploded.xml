@@ -14,6 +14,7 @@
           <element id="module-output" name="springsecurity" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.11" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.4.5" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.4.5" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.4.5" />
@@ -63,6 +64,8 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.5" />
           <element id="library" level="project" name="Maven: junit:junit:4.13.2" />
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:2.2" />
+          <element id="library" level="project" name="Maven: com.github.penggle:kaptcha:2.3.2" />
+          <element id="library" level="project" name="Maven: com.jhlabs:filters:2.0.235-1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -9,6 +9,11 @@ public enum CustomExceptionType {
 
     private int code; //code
 
+    /**
+     *
+     * @param code   状态码
+     * @param description   描述信息
+     */
     CustomExceptionType(int code, String description) {
         this.code = code;
         this.description = description;
