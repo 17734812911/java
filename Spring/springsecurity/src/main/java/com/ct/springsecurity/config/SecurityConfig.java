@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .contentTypeOptions().disable()             // 关闭X-Content-Type-Options:nosniff,使Druid页面可以正常显示
             .and()
                 .authorizeRequests()
-                .antMatchers("/login.html", "/login", "/druid/**", "/kaptcha").permitAll()    //表示访问这里的资源不用经过认证
+                .antMatchers("/login.html", "/login", "/druid/**", "/kaptcha", "/smscode", "/smslogin").permitAll()    //表示访问这里的资源不用经过认证
 
                 // .antMatchers("/","/biz1","/biz2")                   // 资源路径匹配
                 // .hasAnyAuthority("ROLE_user","ROLE_admin")          // 拥有user和admin权限的用户可以访问上一行的资源

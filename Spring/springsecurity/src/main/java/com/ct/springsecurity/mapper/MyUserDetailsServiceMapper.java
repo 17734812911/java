@@ -8,17 +8,17 @@ import java.util.List;
 
 public interface MyUserDetailsServiceMapper {
 
-    // 根据用户名查询用户
-    @Select("SELECT username,password,enabled FROM sys_user WHERE username = #{username}")
+    // 根据用户名或手机号查询用户
+    @Select("SELECT username,password,enabled FROM sys_user WHERE username = #{username} or phone=#{username}")
     MyUserDetails findByUserName(@Param("username") String username);
 
 
-    // 根据用户名查询用户的所有角色
+    // 根据用户名或手机号查询用户的所有角色
     @Select("SELECT role_code " +
             "FROM sys_role r " +
             "LEFT JOIN sys_user_role ur ON r.id = ur.role_id " +
             "LEFT JOIN sys_user u ON u.id = ur.user_id " +
-            "WHERE u.username = #{username}")
+            "WHERE u.username = #{username} or phone=#{username}")
     List<String> findRoleByUserName(@Param("username") String username);
 
 

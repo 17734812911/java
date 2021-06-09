@@ -1,6 +1,6 @@
 package com.ct.springsecurity.controller.kaptcha;
 
-import com.ct.springsecurity.imagecode.KaptchaImageVO;
+import com.ct.springsecurity.imagecode.KaptchaImageCode;
 import com.ct.springsecurity.utils.MyDefinition;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class KaptchaController {
         // 1.生成验证码文本
         String captchaText = defaultKaptcha.createText();
         // 2.将验证码及其有效期放入Session中。验证码的key在MyDefinition中定义了，因为经常用
-        session.setAttribute(MyDefinition.KAPTCHA_SESSION_KEY,new KaptchaImageVO(captchaText,2*60));
+        session.setAttribute(MyDefinition.KAPTCHA_SESSION_KEY,new KaptchaImageCode(captchaText,2*60));
         // 3.根据验证码文本生成验证码图片
         BufferedImage bufferedImage =  defaultKaptcha.createImage(captchaText);
         // 4.将验证码图片返回给浏览器

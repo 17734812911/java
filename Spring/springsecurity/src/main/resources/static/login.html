@@ -16,6 +16,16 @@
     <input type="button" onclick="login()" value="登陆">
     <label><input type="checkbox" name="remember-me" id="remember-me">记住密码</input></label>
 </form>
+
+<h1>
+    <form action="/smslogin" method="post">
+        <span>手机号：</span><input type="text" name="mobile" id="mobile"> <br>
+        <span>短信验证码：</span><input type="text" name="smscode" id="smscode"> <br>
+        <input type="button" onclick="getSmsCode()" value="获取"> <br>
+        <input type="button" onclick="getlogin()" value="登录">
+    </form>
+</h1>
+
 <script>
     window.onload = function (res) {
         // 获取验证码元素
@@ -34,7 +44,7 @@
         let rememberMe = $("#remember-me").is(":checked");
 
         if(username ==="" & password === ""){
-            alert("用户名密码不能为空")
+            alert("用户名密码不能为空");
             return
         }
 
@@ -44,14 +54,14 @@
             data: {
                 "username": username,
                 "password": password,
-                "kaptchaCode": kaptchaCode,
+                "kaptchacode": kaptchaCode,
                 "remember-me-new": rememberMe
             },
             success: function (json) {
                 if (json.isok){
                     location.href = "/"     // index.html
                 }else{
-                    alert(json.message)
+                    alert(json.message);
                     location.href = "/login.html"
                 }
             },
@@ -60,6 +70,55 @@
             }
         })
     }
+
+    function getSmsCode() {
+        $.ajax({
+            type: "get",
+            url: "/smscode",
+            data: {
+                "mobile": $("#mobile").val()
+            },
+            success: function (json) {
+                if (json.isok){
+                    alert(json.message)
+                }else{
+                    alert(json.message)
+                }
+            },
+            error: function (e) {
+                console.log(e.responseText)
+            }
+        });
+    }
+    
+    function smslogin() {
+        let mobile = $("#mobile").val();
+        let smscode = $("#smscode").val();
+        if(mobile === "" || smscode === ""){
+            alert("手机号和验证码均不能为空");
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/smslogin",
+            data: {
+                "mobile": mobile,
+                "smscode": smscode
+            },
+            success: function (json) {
+                if(json.isok){
+                    location.href = json.data
+                }else{
+                    alert(json.message)
+                }
+            },
+            error: function (e) {
+                console.log(e.responseText);
+            }
+        })
+
+    }
+
 </script>
 </body>
 </html>

@@ -55,7 +55,7 @@ public class KaptchaCodeFilter extends OncePerRequestFilter {
         }
 
         // 2.从服务器Session池中取出生成的验证码文本并校验
-        KaptchaImageVO codeInSession = (KaptchaImageVO) session.getAttribute(MyDefinition.KAPTCHA_SESSION_KEY);
+        KaptchaImageCode codeInSession = (KaptchaImageCode) session.getAttribute(MyDefinition.KAPTCHA_SESSION_KEY);
         if(Objects.isNull(codeInSession)){
             throw new SessionAuthenticationException("验证码不存在");
         }

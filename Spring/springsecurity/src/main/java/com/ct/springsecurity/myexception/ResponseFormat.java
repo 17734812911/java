@@ -64,11 +64,11 @@ public class ResponseFormat {
     }
 
     //请求成功的响应，不带查询数据（用于删除、修改、新增接口）
-    public static ResponseFormat success(){
+    public static ResponseFormat success(String msg){
         ResponseFormat responseFormat = new ResponseFormat();
         responseFormat.setIsok(true);
         responseFormat.setCode(200);
-        responseFormat.setMessage("请求响应成功!");
+        responseFormat.setMessage(msg);
         return responseFormat;
     }
 

@@ -9,11 +9,6 @@ import javax.annotation.Resource;
 @Controller
 
 public class JumpController {
-    // 登录
-    // @PostMapping("/login")
-    // public String index(String username,String password) {
-    //     return "index";
-    // }
 
     @Resource
     MethodELService methodELService;

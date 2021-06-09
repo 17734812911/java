@@ -33,7 +33,7 @@ public class MyAuthenticationSuccessHandler extends SavedRequestAwareAuthenticat
             response.setContentType("application/json;charset=UTF-8");
 
             // 用ObjectMapper类的writeValueAsString()方法将返回的字符串转换为JSON对象
-            response.getWriter().write(objectMapper.writeValueAsString(ResponseFormat.success()));
+            response.getWriter().write(objectMapper.writeValueAsString(ResponseFormat.success("请求响应成功！")));
         }else{
             // 调用父类的方法，跳转到上一次请求的页面中
             super.onAuthenticationSuccess(request,response,authentication);
