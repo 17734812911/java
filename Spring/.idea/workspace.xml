@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf151e5c-7f0e-4d33-9c93-c4e635b58988" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/controller/smsmessage/SmsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/filters/SmsCodeValidateFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/utils/SmsCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/filters/SmsCodeAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/provider/SmsCodeAuthenticationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/token/SmsCodeAuthenticationToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/MyAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/MyAuthenticationSuccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/controller/jump/JumpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/controller/jump/JumpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/controller/kaptcha/KaptchaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/controller/kaptcha/KaptchaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/imagecode/KaptchaCodeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/imagecode/KaptchaCodeFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/imagecode/KaptchaImageVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/imagecode/KaptchaImageCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/mapper/MyUserDetailsServiceMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/mapper/MyUserDetailsServiceMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/myexception/ResponseFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/myexception/ResponseFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/utils/MyDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/utils/MyDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/resources/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/filters/SmsCodeValidateFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/springsecurity/src/main/java/com/ct/springsecurity/smscode/filters/SmsCodeValidateFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +295,8 @@
       <workItem from="1622463802666" duration="5451000" />
       <workItem from="1622554557707" duration="6711000" />
       <workItem from="1622633638395" duration="6474000" />
-      <workItem from="1623235989606" duration="6295000" />
+      <workItem from="1623235989606" duration="6715000" />
+      <workItem from="1623329148975" duration="7881000" />
     </task>
     <task id="LOCAL-00001" summary="解决登录问题，添加Git">
       <created>1621430569214</created>
@@ -341,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622561243696</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="短信验证码">
+      <created>1623248745330</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623248745330</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,17 +362,18 @@
     <MESSAGE value="去掉输出语句了" />
     <MESSAGE value="动态鉴权" />
     <MESSAGE value="基于session的图片验证码" />
-    <option name="LAST_COMMIT_MESSAGE" value="基于session的图片验证码" />
+    <MESSAGE value="短信验证码" />
+    <option name="LAST_COMMIT_MESSAGE" value="短信验证码" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1621040592995">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1621040592995" />
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1622645227556">
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1623334964561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1622645227556" />
+    <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1623334964561" />
     <state x="514" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621662397322">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -382,46 +382,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1621047674334" />
-    <state x="164" y="6" key="CommitChangelistDialog2" timestamp="1622561241381">
+    <state x="164" y="6" key="CommitChangelistDialog2" timestamp="1623248743031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="164" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622561241381" />
+    <state x="164" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623248743031" />
     <state x="528" y="113" key="FileChooserDialogImpl" timestamp="1621429829415">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="528" y="113" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621429829415" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1622648534818">
+    <state width="1493" height="144" key="GridCell.Tab.0.bottom" timestamp="1623248937291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622648534818" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1622648534817">
+    <state width="1493" height="144" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623248937291" />
+    <state width="1493" height="144" key="GridCell.Tab.0.center" timestamp="1623248937291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622648534817" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1622648534816">
+    <state width="1493" height="144" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623248937291" />
+    <state width="1493" height="144" key="GridCell.Tab.0.left" timestamp="1623248937291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622648534816" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1622648534817">
+    <state width="1493" height="144" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623248937291" />
+    <state width="1493" height="144" key="GridCell.Tab.0.right" timestamp="1623248937291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622648534817" />
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1622648534820">
+    <state width="1493" height="144" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623248937291" />
+    <state width="1493" height="144" key="GridCell.Tab.1.bottom" timestamp="1623248937292">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622648534820" />
-    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1622648534819">
+    <state width="1493" height="144" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623248937292" />
+    <state width="1493" height="144" key="GridCell.Tab.1.center" timestamp="1623248937292">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1622648534819" />
-    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1622648534818">
+    <state width="1493" height="144" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623248937292" />
+    <state width="1493" height="144" key="GridCell.Tab.1.left" timestamp="1623248937291">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1622648534818" />
-    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1622648534819">
+    <state width="1493" height="144" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623248937291" />
+    <state width="1493" height="144" key="GridCell.Tab.1.right" timestamp="1623248937292">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1622648534819" />
+    <state width="1493" height="144" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623248937292" />
     <state width="1493" height="196" key="GridCell.Tab.2.bottom" timestamp="1621739433679">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -454,10 +454,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622463771494" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1622561256760">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1623248755555">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622561256760" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623248755555" />
     <state x="532" y="130" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1621091409838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -474,10 +474,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1622353332667" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622645856003">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1623337666499">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622645856003" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1623337666499" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

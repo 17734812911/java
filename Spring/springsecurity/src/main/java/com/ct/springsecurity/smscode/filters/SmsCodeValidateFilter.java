@@ -38,10 +38,12 @@ public class SmsCodeValidateFilter extends OncePerRequestFilter {
         // 过滤登录请求。判断当前请求是不是登录请求，并且是不是"POST"请求
         if(StringUtils.equals("/smslogin",request.getRequestURI()) && StringUtils.equalsIgnoreCase(request.getMethod(),"post")){
             try{
+
                 // 验证用户输入的验证码是否正确
                 validate(new ServletWebRequest(request));
             }catch (AuthenticationException exception){
                 // 如果校验失败
+
                 myAuthenticationFailureHandler.onAuthenticationFailure(request,response,exception);
                 // 当验证码校验失败以后，后面的过滤器链中的过滤器就不再执行了
                 return;
